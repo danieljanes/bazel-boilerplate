@@ -1,0 +1,8 @@
+# Starlark
+build --incompatible_force_strict_header_check_from_starlark
+build --incompatible_no_implicit_file_export
+build --incompatible_run_shell_command_string
+
+# Python
+build --incompatible_default_to_explicit_init_py
+build --incompatible_load_python_rules_from_bzl
