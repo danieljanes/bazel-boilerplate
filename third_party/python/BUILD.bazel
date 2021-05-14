@@ -1,0 +1,6 @@
+load("@rules_python//python/pip_install:requirements.bzl", "compile_pip_requirements")
+
+# Check that our compiled requirements are up-to-date
+compile_pip_requirements(
+    name = "requirements",
+)
