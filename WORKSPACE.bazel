@@ -4,15 +4,15 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 rules_python_version = "53ba6cbbb820d88ab6df966e4f558525fe82eb93"  # Latest @ 2021-05-12
 http_archive(
-    name = "rules_python",
-    strip_prefix = "rules_python-{}".format(rules_python_version),
-    url = "https://github.com/bazelbuild/rules_python/archive/{}.zip".format(rules_python_version),
-    sha256 = "53ca94c0a278668a4eb96bfee2f332916a4788313591751c2126aa88b9817997",
+  name = "rules_python",
+  strip_prefix = "rules_python-{}".format(rules_python_version),
+  url = "https://github.com/bazelbuild/rules_python/archive/{}.zip".format(rules_python_version),
+  sha256 = "53ca94c0a278668a4eb96bfee2f332916a4788313591751c2126aa88b9817997",
 )
 
 load("@rules_python//python:pip.bzl", "pip_install")
 pip_install(
-    name = "pypi_deps",
-    requirements = "//third_party/python:requirements.txt",
-    python_interpreter = "python3",
+  name = "pypi_deps",
+  requirements = "//third_party/python:requirements.txt",
+  python_interpreter = "python3",
 )

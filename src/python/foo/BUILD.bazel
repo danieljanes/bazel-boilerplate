@@ -1,0 +1,30 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library", "py_test")
+
+py_library(
+  name = "foo",
+  srcs = glob(["*.py"], exclude=["*_test.py"]),
+  deps = [
+    "//src/python/bar:bar",
+  ],
+  srcs_version = "PY3",
+)
+
+py_test(
+  name = "foo_test",
+  srcs = glob(["*_test.py"]),
+  deps = [
+    ":foo",
+  ],
+  srcs_version = "PY3",
+)
+
+py_binary(
+  name = "foo_bin",
+  srcs = glob(["*.py"], exclude=["*_test.py"]),
+  deps = [
+    ":foo",
+  ],
+  main = ":foo.py",
+  python_version = "PY3",
+  srcs_version = "PY3",
+)
